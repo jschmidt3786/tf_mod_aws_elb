@@ -1,29 +1,25 @@
 variable "elb_name" {
 	description = "Name of ELB"
 }
+#variable "elb_name_prefix" {
+#	description = "Name of ELB"
+#}
 variable "elb_is_internal" {
   description = "Determines if the ELB is internal or not"
-  default     = false
+  default     = "true"
 }
-variable "elb_security_group" {
-	description = "Security group for ELB"
+variable "elb_security_groups" {
+	description = "Security groups for ELB"
+  type        = "list"
 }
-variable "ssl_certificate_id" {
-  description = "The ARN of the SSL Certificate in EC2"
+variable "elb_subnets" {
+  description = "Subnets"
+  type        = "list"
 }
-variable "subnet_az1" {
-  description = "The subnet for AZ1"
-}
-variable "subnet_az2" {
-  description = "The subnet for AZ2"
-}
-variable "subnet_az3" {
-  description = "The subnet for AZ3"
-}
-variable "backend_port" {
+variable "elb_instance_port" {
   description = "The port the service on the EC2 instances listens on"
 }
-variable "backend_protocol" {
+variable "elb_instance_protocol" {
  description = "The protocol the backend service speaks"
  // Possible options are
  // - http
@@ -31,10 +27,10 @@ variable "backend_protocol" {
  // - tcp
  // - ssl (secure tcp)
 }
-variable "frontend_port" {
+variable "elb_lb_port" {
   description = "Frontend port"
 }
-variable "frontend_protocol" {
+variable "elb_lb_protocol" {
   description = "Frontend protocol"
 }
 variable "health_check_target" {
@@ -46,3 +42,6 @@ variable "elb_cross_zone_load_balancing" {
   description = "Enable cross-zone load balancing"
   default     = "true"
 }
+#variable "elb_ssl_certificate_id" {
+#  description = "The ARN of the SSL Certificate in EC2"
+#}

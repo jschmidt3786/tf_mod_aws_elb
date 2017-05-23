@@ -1,21 +1,9 @@
 output "elb_id" {
-  value = "${aws_elb.elb.id}"
+  value = "${aws_elb.load_balancer.id}"
 }
 output "elb_name" {
-  value = "${aws_elb.elb.name}"
+  value = "${aws_elb.load_balancer.name}"
 }
 output "elb_dns_name" {
-  value = "${aws_elb.elb.dns_name}"
-}
-output "elb_instances" {
-  value = "${aws_elb.elb.instances}"
-}
-output "elb_source_security_group" {
-  value = "${aws_elb.elb.source_security_group}"
-}
-output "elb_source_security_group_id" {
-  value = "${aws_elb.elb.source_security_group_id}"
-}
-output "elb_zone_id" {
-  value = "${aws_elb.elb.zone_id}"
+  value = "${aws_elb.load_balancer.dns_name}"
 }
